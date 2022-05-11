@@ -1,5 +1,5 @@
-import Login from "../pages/loggedOut/Login";
 import { Routes, Route } from "react-router-dom";
+import Login from "../pages/loggedOut/Login";
 import ResetPassword from "../pages/loggedOut/ResetPassword";
 import SignUp from "../pages/loggedOut/SignUp";
 import ChoosePlan from "../pages/loggedOut/ChoosePlan";

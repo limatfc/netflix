@@ -1,16 +1,19 @@
-// import LoggedInAdmin from "./routes/LoggedInAdmin";
-// import LoggedInClient from "./routes/LoggedInClient";
+import LoggedInAdmin from "./routes/LoggedInAdmin";
+import LoggedInClient from "./routes/LoggedInClient";
 import LoggedOut from "./routes/LoggedOut";
 import { BrowserRouter } from "react-router-dom";
 import "./styles/global.css";
+import useAccountProvider from "./store/useAccountProvider";
 
 export default function App() {
+  const { uid, account } = useAccountProvider();
+
   return (
     <div>
       <BrowserRouter>
-        <LoggedOut />
-        {/* <LoggedInAdmin />
-      <LoggedInClient /> */}
+        {uid && account?.role === "admin" && <LoggedInAdmin />}
+        {uid && account?.role === "client" && <LoggedInClient />}
+        {!uid && <LoggedOut />}
       </BrowserRouter>
     </div>
   );
