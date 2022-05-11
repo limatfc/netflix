@@ -2,18 +2,16 @@ import { useState } from "react";
 import data from "../../data/signUp.json";
 import InputField from "../../components/InputField";
 import { createUser } from "../../scripts/firebase/auth";
-import useAccountProvider from "../../store/useAccountProvider";
+
 import { Link } from "react-router-dom";
 import { addDocumentWithID } from "../../scripts/firebase/fireStore";
 import { useNavigate } from "react-router-dom";
-import ChoosePlan from "./ChoosePlan";
 
 export default function SignUp() {
   const navigate = useNavigate();
   const [form, setForm] = useState({ email: "", password: "" });
   const [error, setError] = useState(null);
   const check = (input) => input !== "";
-  const { uidHandler } = useAccountProvider();
 
   const inputFields = data.map((item) => (
     <InputField
@@ -30,7 +28,6 @@ export default function SignUp() {
     const data = await createUser(form);
 
     if (data.uid) {
-      uidHandler(data.uid);
       const result = await addDocumentWithID("accounts", data.uid, {
         role: "client",
       });
