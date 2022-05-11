@@ -1,11 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { UserProvider } from "./store/UserProvider";
+import { AccountProvider } from "./store/AccountProvider";
 import App from "./App";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <UserProvider>
+  <AccountProvider>
     <App />
-  </UserProvider>
+  </AccountProvider>
 );
