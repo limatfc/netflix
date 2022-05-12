@@ -30,8 +30,8 @@
     },
     {
       "key": "adjectives",
-      "label": "Classification",
-      "placeholder": "Classification",
+      "label": "This title is",
+      "placeholder": "This title is",
       "type": "text",
       "error": "Please enter at least one adjective."
     },

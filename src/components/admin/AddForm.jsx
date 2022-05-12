@@ -1,7 +1,5 @@
 import { useState } from "react";
-import data from "../../data/addForm.json";
 import classes from "../../styles/admin/Forms.module.css";
-import InputField from "../InputField";
 import splitString from "../../scripts/logic/splitString";
 import initialState from "../../data/AddFormInitialState.json";
 import {
@@ -11,6 +9,9 @@ import {
 import useAccountProvider from "../../store/useAccountProvider";
 import FileInput from "../FileInput";
 import { addImage } from "../../scripts/logic/addImage";
+import AddTextFields from "./AddTextFields";
+import Select from "./Select";
+import AddNumber from "./AddNumberFields";
 
 export default function AddForm({ setShowModal }) {
   const [form, setForm] = useState(initialState);
@@ -18,33 +19,7 @@ export default function AddForm({ setShowModal }) {
   const [thumb, setThumb] = useState();
   const [error, setError] = useState(null);
   const [status, setStatus] = useState(null);
-  const checkEmpty = (input) => input !== "";
-  const numberCheck = (input) => input !== "" && input > 0;
   const { addTitle } = useAccountProvider();
-
-  const titleAndDescription = data.emptyCheck.map((item) => (
-    <InputField
-      key={item.key}
-      setup={item}
-      state={[form, setForm]}
-      check={checkEmpty}
-    />
-  ));
-
-  const options = data.type.map((item) => (
-    <option value={item} key={item}>
-      {item}
-    </option>
-  ));
-
-  const series = data.numberCheck.map((item) => (
-    <InputField
-      key={item.key}
-      setup={item}
-      state={[form, setForm]}
-      check={numberCheck}
-    />
-  ));
 
   async function onAdd(event) {
     event.preventDefault();
@@ -87,16 +62,11 @@ export default function AddForm({ setShowModal }) {
         <form onSubmit={onAdd}>
           <small>{error && error}</small>
           <h2>To add a new title, please fill in the fields below:</h2>
-          {titleAndDescription}
-          <select
-            onChange={(event) => setForm({ ...form, type: event.target.value })}
-          >
-            Type
-            {options}
-          </select>
+          <AddTextFields state={[form, setForm]} />
+          <Select state={[form, setForm]} />
           <FileInput label="cover" setter={setCover} />
           <FileInput label="thumbnail" setter={setThumb} />
-          {form.type === "Series" && series}
+          {form.type === "Series" && <AddNumber state={[form, setForm]} />}
           <button type="submit">{label}</button>
           <button type="button" onClick={() => setShowModal(false)}>
             Close
