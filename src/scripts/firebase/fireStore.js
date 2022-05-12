@@ -1,5 +1,5 @@
 import { fireStore } from "./firebase";
-import { doc, setDoc, getDoc } from "firebase/firestore";
+import { doc, setDoc, getDoc, collection, getDocs } from "firebase/firestore";
 import { onFail } from "../logic/onFail";
 
 export async function addDocumentWithID(path, id, content) {
@@ -27,4 +27,14 @@ export async function readDocument(path, id) {
   }
 
   return data;
+}
+
+export async function getCollection(path) {
+  const collectionPath = collection(fireStore, path);
+  const snapshot = await getDocs(collectionPath);
+  const documents = snapshot.docs.map((item) => {
+    return { id: item.id, ...item.data() };
+  });
+
+  return documents;
 }

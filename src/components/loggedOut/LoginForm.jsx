@@ -1,17 +1,19 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import classes from "../../styles/loggedOut/LoginForm.module.css";
 import InputField from "../InputField";
 import data from "../../data/login.json";
 import { loginUser } from "../../scripts/firebase/auth";
 import { readDocument } from "../../scripts/firebase/fireStore";
 import useAccountProvider from "../../store/useAccountProvider";
+import { loginNavigation } from "../../scripts/logic/loginNavigation";
 
 export default function LoginForm() {
+  const navigate = useNavigate();
   const [form, setForm] = useState({ email: "", password: "" });
   const [error, setError] = useState(null);
   const { uidHandler, accountHandler } = useAccountProvider();
-  const check = (input) => input.length !== "";
+  const check = (input) => input !== "";
 
   const inputFields = data.map((item) => (
     <InputField
@@ -27,10 +29,14 @@ export default function LoginForm() {
 
     const data = await loginUser(form);
     if (data.uid) {
-      const result = await readDocument("accounts", data.uid);
       uidHandler(data.uid);
-      if (result.result) accountHandler(result.result);
-      if (result.error) setError(result.error);
+      const account = await readDocument("accounts", data.uid);
+      if (account.result) {
+        accountHandler(account.result);
+        const link = loginNavigation(account.result);
+        navigate(link);
+      }
+      if (account.error) setError(account.error);
     }
     if (data.error) setError(data.error);
   }
