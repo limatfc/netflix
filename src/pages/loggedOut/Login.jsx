@@ -3,8 +3,11 @@ import LoginForm from "../../components/loggedOut/LoginForm";
 import logo from "../../assets/icons/logo.png";
 import hero from "../../assets/images/hero.jpeg";
 import classes from "../../styles/loggedOut/Login.module.css";
+import { useState } from "react";
 
 export default function Login() {
+  const [onContinue, setOnContinue] = useState(false);
+
   return (
     <div className={classes.login}>
       <img
@@ -14,9 +17,9 @@ export default function Login() {
       />
       <img className={classes.logo} src={logo} alt="netflix whitten in red" />
       <div className={classes.overlayer}>
-        <LoginForm />
+        <LoginForm onContinue={onContinue} />
         <label>
-          <input type="checkbox" />
+          <input type="checkbox" onChange={() => setOnContinue(true)} />
           Remember me
         </label>
         <Link to="/LoginHelp">Need help?</Link>
