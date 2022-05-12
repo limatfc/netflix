@@ -1,7 +1,8 @@
 // import LoggedInAdmin from "./routes/LoggedInAdmin";
-// import LoggedInUser from "./routes/LoggedInUser";
+// import LoggedInClient from "./routes/LoggedInClient";
 import LoggedOut from "./routes/LoggedOut";
 import { BrowserRouter } from "react-router-dom";
+import "./styles/global.css";
 
 export default function App() {
   return (
@@ -9,7 +10,7 @@ export default function App() {
       <BrowserRouter>
         <LoggedOut />
         {/* <LoggedInAdmin />
-      <LoggedInUser /> */}
+      <LoggedInClient /> */}
       </BrowserRouter>
     </div>
   );

@@ -1,0 +1,16 @@
+[
+  {
+    "key": "email",
+    "label": "Email or phone number",
+    "placeholder": "Email or phone number",
+    "type": "text",
+    "error": "Please enter a valid email address or phone number."
+  },
+  {
+    "key": "password",
+    "label": "Password",
+    "placeholder": "Password",
+    "type": "password",
+    "error": "Your password must contain between 8 and 60 characters."
+  }
+]
