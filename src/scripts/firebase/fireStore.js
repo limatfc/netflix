@@ -1,5 +1,12 @@
 import { fireStore } from "./firebase";
-import { doc, setDoc, getDoc, collection, getDocs } from "firebase/firestore";
+import {
+  doc,
+  setDoc,
+  getDoc,
+  collection,
+  getDocs,
+  addDoc,
+} from "firebase/firestore";
 import { onFail } from "../logic/onFail";
 
 export async function addDocumentWithID(path, id, content) {
@@ -11,6 +18,18 @@ export async function addDocumentWithID(path, id, content) {
   } catch (error) {
     data.error = "Ooops, looks like we couldn't create a user in our database.";
   }
+  return data;
+}
+
+export async function addDocumentWithNoId(path, content) {
+  const data = { id: null, error: null };
+
+  try {
+    data.id = await addDoc(collection(fireStore, path), content);
+  } catch (error) {
+    data.error = onFail(error);
+  }
+
   return data;
 }
 

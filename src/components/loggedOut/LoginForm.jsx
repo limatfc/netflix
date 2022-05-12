@@ -7,8 +7,9 @@ import { loginUser } from "../../scripts/firebase/auth";
 import { readDocument } from "../../scripts/firebase/fireStore";
 import useAccountProvider from "../../store/useAccountProvider";
 import { loginNavigation } from "../../scripts/logic/loginNavigation";
+import { setLocalStorage } from "../../scripts/localStorage/localStorage";
 
-export default function LoginForm() {
+export default function LoginForm({ onContinue }) {
   const navigate = useNavigate();
   const [form, setForm] = useState({ email: "", password: "" });
   const [error, setError] = useState(null);
@@ -33,6 +34,7 @@ export default function LoginForm() {
       const account = await readDocument("accounts", data.uid);
       if (account.result) {
         accountHandler(account.result);
+        if (onContinue) setLocalStorage(data.uid);
         const link = loginNavigation(account.result);
         navigate(link);
       }
