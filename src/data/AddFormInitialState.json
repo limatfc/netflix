@@ -1,10 +1,13 @@
 {
   "title": "",
   "description": "",
+  "query": "",
   "cast": [],
   "genres": [],
   "adjectives": [],
   "type": "",
-  "season": 0,
-  "episode": 0
+  "season": "",
+  "episode": "",
+  "cover": "",
+  "thumb": ""
 }

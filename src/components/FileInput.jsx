@@ -6,13 +6,8 @@ export default function FileInput({ setter, label }) {
 
   return (
     <label className="file-input label">
-      Upload {label}
-      <input
-        type="file"
-        accept="image/png, image/jpeg"
-        required
-        onChange={onAddImage}
-      />
+      Upload {label} image
+      <input type="file" accept="image/png, image/jpeg" onChange={onAddImage} />
     </label>
   );
 }

@@ -25,7 +25,8 @@ export async function addDocumentWithNoId(path, content) {
   const data = { id: null, error: null };
 
   try {
-    data.id = await addDoc(collection(fireStore, path), content);
+    const result = await addDoc(collection(fireStore, path), content);
+    data.id = result.id;
   } catch (error) {
     data.error = onFail(error);
   }
@@ -56,4 +57,16 @@ export async function getCollection(path) {
   });
 
   return documents;
+}
+
+export async function editDocument(path, documentId, content) {
+  const data = { result: null, error: null };
+  try {
+    const cityRef = doc(fireStore, path, documentId);
+    setDoc(cityRef, content, { merge: true });
+    data.result = true;
+  } catch (error) {
+    data.error = onFail(error);
+  }
+  return data;
 }
