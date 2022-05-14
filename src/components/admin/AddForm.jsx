@@ -12,6 +12,7 @@ import { addImage } from "../../scripts/logic/addImage";
 import AddTextFields from "./AddTextFields";
 import Select from "./Select";
 import AddNumber from "./AddNumberFields";
+import formCheck from "../../scripts/logic/formCheck";
 
 export default function AddForm({ setShowModal }) {
   const [form, setForm] = useState(initialState);
@@ -23,31 +24,34 @@ export default function AddForm({ setShowModal }) {
 
   async function onAdd(event) {
     event.preventDefault();
-    setStatus(0);
-    form.cast = splitString(form.cast);
-    form.genres = splitString(form.genres);
-    form.adjectives = splitString(form.adjectives);
+    const run = formCheck(form);
+    if (run) {
+      setStatus(0);
+      form.cast = splitString(form.cast);
+      form.genres = splitString(form.genres);
+      form.adjectives = splitString(form.adjectives);
 
-    const data = await addDocumentWithNoId("titles", form);
-
-    if (data.id) {
-      form.id = data.id;
-      const coverURL = await addImage(cover, data.id, "cover");
-      if (coverURL.result) form.cover = coverURL.result;
-      if (coverURL.error) setError(`${coverURL.error}. Please try again`);
-      const thumbURL = await addImage(thumb, data.id, "thumb");
-      if (thumbURL.error) setError(`${thumbURL.error}. Please try again`);
-      if (thumbURL.result) form.thumb = thumbURL.result;
-      const editForm = await editDocument("titles", data.id, form);
-      if (editForm.result) {
-        addTitle(form);
-        setShowModal(false);
-        setStatus(1);
+      const data = await addDocumentWithNoId("titles", form);
+      if (data.id) {
+        form.id = data.id;
+        const coverURL = await addImage(cover, data.id, "cover");
+        if (coverURL.result) form.cover = coverURL.result;
+        if (coverURL.error) setError(`${coverURL.error}. Please try again`);
+        const thumbURL = await addImage(thumb, data.id, "thumb");
+        if (thumbURL.error) setError(`${thumbURL.error}. Please try again`);
+        if (thumbURL.result) form.thumb = thumbURL.result;
+        const editForm = await editDocument("titles", data.id, form);
+        if (editForm.result) {
+          addTitle(form);
+          setShowModal(false);
+          setStatus(1);
+        }
+        if (editForm.error) setError(`${editForm.error}. Please try again`);
       }
-      if (editForm.error) setError(`${editForm.error}. Please try again`);
+      if (data.error) setError(`${data.error}. Please try again`);
+      setStatus(2);
     }
-    if (data.error) setError(`${data.error}. Please try again`);
-    setStatus(2);
+    if (!run) setError(" Please check if all fields have been completed");
   }
 
   let label = status === 0 ? "Loading" : "Add a new title";

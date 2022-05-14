@@ -6,6 +6,7 @@ import {
   collection,
   getDocs,
   addDoc,
+  deleteDoc
 } from "firebase/firestore";
 import { onFail } from "../logic/onFail";
 
@@ -66,7 +67,19 @@ export async function editDocument(path, documentId, content) {
     setDoc(cityRef, content, { merge: true });
     data.result = true;
   } catch (error) {
-    data.error = onFail(error);
+    data.error = "Oops, looks like something went wrong.";
+  }
+  return data;
+}
+
+export async function deleteDocument(path, documentId) {
+  const data = { result: null, error: null };
+  try {
+    await deleteDoc(doc(fireStore, path, documentId));
+    data.result = true;
+  } catch (error) {
+   console.error(error)
+   data.error("Ops, looks like there was a problem. Please try again later.")
   }
   return data;
 }
