@@ -41,7 +41,22 @@ export function AccountProvider({ children }) {
   }, []);
 
   function addTitle(inputedData) {
-    setTitles({ ...titles, inputedData });
+    setTitles([...titles, inputedData]);
+  }
+
+  function deleteTitle(id) {
+    const copy = [...titles];
+    const findIndex = copy.findIndex((item) => item.id === id);
+    copy.splice(findIndex, 1);
+    setTitles(copy);
+  }
+
+  function editTitle(inputedData) {
+    const copy = [...titles];
+    const findIndex = copy.findIndex((item) => item.id === inputedData.id);
+    copy.splice(findIndex, 1);
+    copy.push(inputedData);
+    setTitles(copy);
   }
 
   const value = {
@@ -52,6 +67,8 @@ export function AccountProvider({ children }) {
     titlesHandler,
     titles,
     addTitle,
+    editTitle,
+    deleteTitle,
   };
 
   return (

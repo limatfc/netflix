@@ -1,6 +1,6 @@
-export default function splitString(string) {
-  if (string.length === 0) return null;
+export default function splitString(inputed) {
 
-  const split = string.split(",");
+  const split = inputed.split(",");
   return split;
+
 }

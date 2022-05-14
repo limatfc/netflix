@@ -19,7 +19,7 @@ export default function TitleItem({ item }) {
       )}
       <Modal>
         {editItem && <EditForm setter={setEditItem} item={item} />}
-        {deleteItem && <DeleteForm setter={setDeleteItem} />}
+        {deleteItem && <DeleteForm setter={setDeleteItem} item={item} />}
       </Modal>
     </div>
   );

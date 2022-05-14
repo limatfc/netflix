@@ -1,5 +1,5 @@
 import { cloudStorage } from "./firebase";
-import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { ref, uploadBytes, getDownloadURL, deleteObject } from "firebase/storage";
 
 export async function uploadFile(file, fileName) {
   const data = { result: null, error: null };
@@ -14,4 +14,10 @@ export async function uploadFile(file, fileName) {
   }
 
   return data;
+}
+
+
+export async function deleteFile(fileName) {
+  const fileReference = ref(cloudStorage, fileName);
+  await deleteObject(fileReference);
 }
