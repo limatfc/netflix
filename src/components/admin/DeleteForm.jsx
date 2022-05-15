@@ -15,7 +15,8 @@ export default function DeleteForm({ setter, item }) {
     setStatus(2);
     if (data.result) {
       deleteTitle(item.id);
-      deleteFile(`activity/${item.id}.png`);
+      deleteFile(`$"thumb"/${item.id}.png`);
+      deleteFile(`"cover"/${item.id}.png`);
       setStatus(1);
     }
 

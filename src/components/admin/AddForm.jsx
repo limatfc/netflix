@@ -11,7 +11,6 @@ import FileInput from "../FileInput";
 import { addImage } from "../../scripts/logic/addImage";
 import AddTextFields from "./AddTextFields";
 import Select from "./Select";
-import AddNumber from "./AddNumberFields";
 import formCheck from "../../scripts/logic/formCheck";
 
 export default function AddForm({ setShowModal }) {
@@ -70,7 +69,6 @@ export default function AddForm({ setShowModal }) {
           <Select state={[form, setForm]} />
           <FileInput label="cover" setter={setCover} />
           <FileInput label="thumbnail" setter={setThumb} />
-          {form.type === "Series" && <AddNumber state={[form, setForm]} />}
           <button type="submit">{label}</button>
           <button type="button" onClick={() => setShowModal(false)}>
             Close

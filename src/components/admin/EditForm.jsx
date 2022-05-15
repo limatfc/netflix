@@ -2,7 +2,6 @@ import classes from "../../styles/admin/Forms.module.css";
 import AddTextFields from "./AddTextFields";
 import { useState } from "react";
 import Select from "./Select";
-import AddNumber from "./AddNumberFields";
 import FileInput from "../FileInput";
 import splitString from "../../scripts/logic/splitString";
 import formCheck from "../../scripts/logic/formCheck";
@@ -58,7 +57,6 @@ export default function EditForm({ setter, item }) {
           </h2>
           <AddTextFields state={[form, setForm]} />
           <Select state={[form, setForm]} />
-          {form.type === "Series" && <AddNumber state={[form, setForm]} />}
           <FileInput label="cover" setter={setCover} />
           <FileInput label="thumbnail" setter={setThumb} />
           <button type="submit">{label}</button>

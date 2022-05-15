@@ -37,26 +37,10 @@
     },
     {
       "key": "query",
-      "label": "Youtube URL Query",
+      "label": "Youtube URL Query - leave empty if adding a Series",
       "placeholder": "Query",
       "type": "text",
-      "error": "Please enter a valid query value."
-    }
-  ],
-  "numberCheck": [
-    {
-      "key": "season",
-      "label": "Season",
-      "placeholder": "Season",
-      "type": "number",
-      "error": "Please enter a valid number (greater than 0)."
-    },
-    {
-      "key": "episode",
-      "label": "Episode",
-      "placeholder": "Episode",
-      "type": "number",
-      "error": "Please enter a valid number (greater than 0)."
+      "error": ""
     }
   ],
   "type": ["Select a type", "Movie", "Series", "Documentary"],

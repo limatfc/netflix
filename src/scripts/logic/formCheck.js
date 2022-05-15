@@ -2,7 +2,7 @@ export default function formCheck( form ) {
   if (
     form.title !== "" &&
     form.description !== "" &&
-    form.query !== "" &&
+    
     form.type !== "" &&
     form.cast.length !== 0 &&
     form.genres.length !== 0 &&
@@ -12,7 +12,7 @@ export default function formCheck( form ) {
     if (
         form.title === "" &&
         form.description === "" &&
-        form.query === "" &&
+       
         form.type === "" &&
         form.cast.length === 0 &&
         form.genres.length === 0 &&
