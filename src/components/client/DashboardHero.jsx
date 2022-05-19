@@ -1,7 +1,7 @@
 import useAccountProvider from "../../store/useAccountProvider";
 import logoLetter from "../../assets/icons/logo-letter.png";
 import play from "../../assets/icons/play.png";
-import info from "../../assets/icons/info_white.png";
+import info from "../../assets/icons/info-white.png";
 import sound from "../../assets/icons/sound.png";
 import classes from "../../styles/client/Hero.module.css";
 import showComingSoon from "../../scripts/logic/showComingSoon";
@@ -15,7 +15,7 @@ export default function DashboardHero() {
     const isComingSoon = showComingSoon(titles[randomIndex]);
     label = isComingSoon;
   }
-  console.log(label);
+
   return (
     <div className={classes.hero}>
       <img
