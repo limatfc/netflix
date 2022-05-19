@@ -11,8 +11,8 @@ import useAccountProvider from "../../store/useAccountProvider";
 
 export default function EditForm({ setter, item }) {
   const [form, setForm] = useState(item);
-  const [cover, setCover] = useState();
-  const [thumb, setThumb] = useState();
+  const [cover, setCover] = useState(item.cover);
+  const [thumb, setThumb] = useState(item.thumb);
   const [status, setStatus] = useState(null);
   const [error, setError] = useState(null);
   const { editTitle } = useAccountProvider();

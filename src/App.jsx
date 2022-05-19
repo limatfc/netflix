@@ -8,12 +8,15 @@ import useAccountProvider from "./store/useAccountProvider";
 export default function App() {
   const { uid, account } = useAccountProvider();
 
+  const client = account.role === "client";
+  const admin = account.role === "admin";
+
   return (
     <div>
       <BrowserRouter>
-        {uid && account.role === "admin" && <LoggedInAdmin />}
-        {uid && account.role === "client" && <LoggedInClient />}
-        {account.role !== "client" && account.role !== "admin" && <LoggedOut />}
+        {uid && admin && <LoggedInAdmin />}
+        {uid && client && <LoggedInClient />}
+        {!uid && <LoggedOut />}
       </BrowserRouter>
     </div>
   );

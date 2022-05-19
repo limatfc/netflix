@@ -29,6 +29,10 @@ export default function ItemDetails({ item, setter }) {
         Thumbnail Image:
         <img src={item.thumb} alt="the cast of the title" />
       </div>
+      <div>
+        Logo Image:
+        <img src={item.logo} alt="the cast of the title" />
+      </div>
       {item.type !== "Series" && <YoutubeEmbed embedId={item.query} />}
       <h3>Episodes:</h3>
       {item.type === "Series" && <Episodes item={item} />}
