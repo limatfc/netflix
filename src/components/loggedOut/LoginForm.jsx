@@ -30,9 +30,9 @@ export default function LoginForm({ onContinue }) {
 
     const data = await loginUser(form);
     if (data.uid) {
-      uidHandler(data.uid);
       const account = await readDocument("accounts", data.uid);
       if (account.result) {
+        uidHandler(data.uid);
         accountHandler(account.result);
         if (onContinue) setLocalStorage(data.uid);
         const link = loginNavigation(account.result);

@@ -6,6 +6,7 @@ import AddForm from "../../components/admin/AddForm";
 import Modal from "../../components/Modal";
 import { useState } from "react";
 import TitleCard from "../../components/admin/TitleCard";
+import DashboardHeader from "../../components/admin/DashboardHeader";
 
 export default function AdminDashboard() {
   const [showModal, setShowModal] = useState(false);
@@ -21,7 +22,7 @@ export default function AdminDashboard() {
 
   return (
     <div>
-      <h1>Welcome to Netflix!</h1>
+      <DashboardHeader />
       <p>Here you can edit, add or delete a title from our library:</p>
       <button onClick={() => setShowModal(true)}>Add a new title</button>
       <h2>Series:</h2>

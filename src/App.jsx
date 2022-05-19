@@ -11,9 +11,9 @@ export default function App() {
   return (
     <div>
       <BrowserRouter>
-        {uid && account?.role === "admin" && <LoggedInAdmin />}
-        {uid && account?.role === "client" && <LoggedInClient />}
-        {!uid && <LoggedOut />}
+        {uid && account.role === "admin" && <LoggedInAdmin />}
+        {uid && account.role === "client" && <LoggedInClient />}
+        {account.role !== "client" && account.role !== "admin" && <LoggedOut />}
       </BrowserRouter>
     </div>
   );
