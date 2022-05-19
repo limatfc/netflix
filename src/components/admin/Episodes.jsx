@@ -7,7 +7,7 @@ export default function Episodes({ item }) {
   const [addEpisode, setAddEpisode] = useState(false);
 
   const episodeCard = item.episodes.map((episode) => (
-    <EpisodeCard key={episode.description} episode={episode} id={item.id} />
+    <EpisodeCard key={episode.id} episode={episode} id={item.id} />
   ));
 
   return (

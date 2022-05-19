@@ -16,7 +16,7 @@ export function AccountProvider({ children }) {
       }
     }
     onFirstLoad();
-  }, [uid]);
+  }, []);
 
   useEffect(() => {
     async function loadAccount() {
@@ -82,7 +82,7 @@ export function AccountProvider({ children }) {
     const copy = [...titles];
     const findTitle = copy.find((item) => item.id === idTitle);
     const findEpisode = findTitle.episodes.findIndex(
-      (item) => item.description === idEpisode
+      (item) => item.id === idEpisode
     );
     findTitle.episodes.splice(findEpisode, 1);
     findTitle.episodes.push(inputedData);

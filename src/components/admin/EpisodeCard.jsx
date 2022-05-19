@@ -9,21 +9,29 @@ import DeleteEpisode from "./DeleteEpisode";
 export default function EpisodeCard({ episode, id }) {
   const [deleteItem, setDeleteItem] = useState(false);
   const [editItem, setEditItem] = useState(false);
+  const [details, setDetails] = useState(false);
 
   return (
     <div>
-      <h3>
-        Season: {episode.season}, Episode: {episode.episode}
-      </h3>
-      <button onClick={() => setDeleteItem(true)}>
-        <img src={garbage} alt="a garbage can" />
+      <button onClick={() => setDetails(!details)}>
+        <h3>
+          Season: {episode.season}, Episode: {episode.episode}
+        </h3>
       </button>
-      <button onClick={() => setEditItem(true)}>
-        <img src={edit} alt="the edit icon" />
-      </button>
-      <p>Description: {episode.description}</p>
-      <img src={episode.thumb} alt="a frozen scene of the episode" />
-      <YoutubeEmbed embedId={episode.query} />
+      {details && (
+        <div>
+          <button onClick={() => setDeleteItem(true)}>
+            <img src={garbage} alt="a garbage can" />
+          </button>
+          <button onClick={() => setEditItem(true)}>
+            <img src={edit} alt="the edit icon" />
+          </button>
+          <p>Title: {episode.title}</p>
+          <p>Description: {episode.description}</p>
+          <img src={episode.thumb} alt="a frozen scene of the episode" />
+          <YoutubeEmbed embedId={episode.query} />
+        </div>
+      )}
       <Modal>
         {editItem && (
           <EditEpisode setEditItem={setEditItem} episode={episode} id={id} />

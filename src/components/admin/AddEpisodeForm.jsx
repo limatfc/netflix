@@ -45,6 +45,7 @@ export default function AddEpisodeForm({ setAddEpisode, data }) {
           <h2>To add a new episode, please complete the information below:</h2>
           <InputField setup={set.se} state={[input, setInput]} check={number} />
           <InputField setup={set.ep} state={[input, setInput]} check={number} />
+          <InputField setup={set.ti} state={[input, setInput]} check={check} />
           <InputField setup={set.de} state={[input, setInput]} check={check} />
           <InputField setup={set.qe} state={[input, setInput]} check={check} />
           <InputField setup={set.th} state={[input, setInput]} check={check} />

@@ -16,8 +16,8 @@ export default function EditEpisode({ setEditItem, episode, id }) {
 
   async function onEdit(event) {
     event.preventDefault();
-    const editedTitle = await editEpisode(id, episode.id, input);
-    const data = editDocument("titles", id, editedTitle);
+    const editedTitle = editEpisode(id, episode.id, input);
+    const data = await editDocument("titles", id, editedTitle);
     if (data.result) {
       setStatus(1);
       setEditItem(false);
@@ -40,6 +40,7 @@ export default function EditEpisode({ setEditItem, episode, id }) {
           <h2>To edit the episode, please complete the information below:</h2>
           <InputField setup={set.se} state={[input, setInput]} check={number} />
           <InputField setup={set.ep} state={[input, setInput]} check={number} />
+          <InputField setup={set.ti} state={[input, setInput]} check={check} />
           <InputField setup={set.de} state={[input, setInput]} check={check} />
           <InputField setup={set.qe} state={[input, setInput]} check={check} />
           <InputField setup={set.th} state={[input, setInput]} check={check} />

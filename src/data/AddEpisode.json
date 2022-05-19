@@ -34,4 +34,13 @@
     "placeholder": "Thumbnail image",
     "type": "text",
     "error": "Please enter a valid URL link."
+  },
+  "ti": {
+    
+      "key": "title",
+      "label": "Title",
+      "placeholder": "Title",
+      "type": "text",
+      "error": "Please enter a valid title for this content."
+    
   }}
