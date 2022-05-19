@@ -41,6 +41,13 @@
       "placeholder": "Query",
       "type": "text",
       "error": ""
+    },
+    {
+      "key": "logo",
+      "label": "Logo image",
+      "placeholder": "Logo image",
+      "type": "text",
+      "error": ""
     }
   ],
   "type": ["Select a type", "Movie", "Series", "Documentary"],
