@@ -5,3 +5,12 @@
 .titleCategories h2{
     color: white;
 }
+
+.categoryList {
+display: flex;
+height: 100%;
+overflow-x: scroll;    
+white-space: nowrap;
+width: 100%;
+}
+
