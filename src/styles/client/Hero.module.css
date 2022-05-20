@@ -30,15 +30,17 @@
     text-transform: uppercase;
     font-size: x-large;
 }
-.logowrapper{
+.titleLogoWrapper{
     position: absolute;
      top: 28%;
     left: 4%;
-    width: 500px;
-    height: 300px;
+    max-width: 40%;
+    
 }
-.logowrapper img {
-    max-height: 300px;
+.titleLogoWrapper img {
+    width: 100%;
+  height: auto;
+  max-height: 350px;
 }
 
 .hero h3{
@@ -66,15 +68,15 @@
     flex-grow: 1;
 }
 
-.sound span{
+.again span{
     color: white;
 }
 
-.icon span, .sound span {
+.icon span, .again span {
     padding-left: 1.1vw;
 }
 
-.icon, .sound {
+.icon, .again {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -83,11 +85,17 @@
     padding: 5px 30px 5px 30px;
 }
 
+.icon:hover, .again img:hover{
+    cursor: pointer;
+    opacity: 0.8;
+   
+} 
+
 .icon img {
 width: 30px;
 }
 
-.sound img {
+.again img {
     width: 50px;
 }
 

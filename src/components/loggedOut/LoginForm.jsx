@@ -38,9 +38,15 @@ export default function LoginForm({ onContinue }) {
         const link = loginNavigation(account.result);
         navigate(link);
       }
-      if (account.error) setError(account.error);
+      if (account.error) {
+        setError(account.error);
+        setForm({ email: "", password: "" });
+      }
     }
-    if (data.error) setError(data.error);
+    if (data.error) {
+      setError(data.error);
+      setForm({ email: "", password: "" });
+    }
   }
 
   return (

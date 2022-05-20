@@ -2,7 +2,7 @@ import useAccountProvider from "../../store/useAccountProvider";
 import logoLetter from "../../assets/icons/logo-letter.png";
 import play from "../../assets/icons/play.png";
 import info from "../../assets/icons/info-white.png";
-import sound from "../../assets/icons/sound.png";
+import again from "../../assets/icons/again.png";
 import classes from "../../styles/client/Hero.module.css";
 import showComingSoon from "../../scripts/logic/showComingSoon";
 
@@ -27,10 +27,10 @@ export default function DashboardHero() {
         <img src={logoLetter} alt="logo" />
         <span className={classes.type}>{titles[randomIndex].type}</span>
       </div>
-      <div className={classes.logowrapper}>
+      <div className={classes.titleLogoWrapper}>
         <img src={titles[randomIndex].logo} alt="show's logo" />
       </div>
-      <h2 className={classes.coming}>{label && "Coming soon"}</h2>
+      <h2 className={classes.coming}>{label && "New Episodes Coming Soon"}</h2>
       <h3>{titles[randomIndex].description}</h3>
       <div className={classes.buttons}>
         <button className={`${classes.icon} ${classes.play}`}>
@@ -42,8 +42,8 @@ export default function DashboardHero() {
           <span>More Info</span>
         </button>
         <div className={classes.empty}></div>
-        <div className={classes.sound}>
-          <img src={sound} alt="sound icon" />
+        <div className={classes.again}>
+          <img src={again} alt="repeat icon" />
           <span>13+</span>
         </div>
       </div>
