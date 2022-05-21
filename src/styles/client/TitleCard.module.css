@@ -1,15 +1,49 @@
- .titleCard{
-    padding: 0 0.2vw;
-    width: 16.66666667%;
-    vertical-align: top;
-} 
+.titleCard {
+  display: inline-flex;
+  white-space: nowrap;
+  padding: 0 0.2vw;
+  min-width: 200px;
+  max-width: 16.66666667%;
+  vertical-align: top;
+}
 
 .titleCard img {
-  
-   width: 100%;
-   
+  max-width: 100%;
+  display: inline-block;
 }
-/* 
-.titleCard:hover{
-cursor: pointer;
-}  */
+
+.titleCard button {
+  margin: 0;
+  padding: 1.2vw 0 1.2vw 0;
+  background-color: transparent;
+  border: none;
+}
+
+.titleCard button span {
+  margin-top: 7vw;
+  padding: 0;
+  position: absolute;
+  padding: 4px 4px 4px 16px;
+  color: white;
+  background-color: #b8171f;
+  font-size: 0.8vw;
+  font-weight: bold;
+  z-index: 1;
+}
+
+.titleCard :hover {
+  cursor: pointer;
+  z-index: 2;
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -o-transform: scale(1.2);
+  transform: scale(1.2);
+}
+
+.titleCard button:hover {
+  transition: all 0.4s ease;
+  -webkit-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  -ms-transition: all 0.4s ease;
+}

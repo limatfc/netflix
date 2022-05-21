@@ -3,7 +3,7 @@ import logoLetter from "../../assets/icons/logo-letter.png";
 import play from "../../assets/icons/play.png";
 import info from "../../assets/icons/info-white.png";
 import again from "../../assets/icons/again.png";
-import classes from "../../styles/client/Hero.module.css";
+import classes from "../../styles/client/DashboardHero.module.css";
 import showComingSoon from "../../scripts/logic/showComingSoon";
 
 export default function DashboardHero() {
@@ -44,7 +44,7 @@ export default function DashboardHero() {
         <div className={classes.empty}></div>
         <div className={classes.again}>
           <img src={again} alt="repeat icon" />
-          <span>13+</span>
+          <span>{titles[randomIndex].minAge}+</span>
         </div>
       </div>
     </div>
