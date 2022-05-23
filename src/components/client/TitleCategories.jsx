@@ -20,12 +20,23 @@ export default function TitleCategories() {
 
   return (
     <div className={classes.titleCategories}>
+      {/* <div className={classes.categoryList}>
+        <h2>My List</h2>
+      </div>
+      <div className={classes.categoryList}>
+        <h2>Continue watching for</h2>
+      </div> */}
       <h2>Movies</h2>
-      {movieCard}
+      <div className={classes.categoryList}>{movieCard}</div>
+
       <h2>Series</h2>
-      {seriesCard}
+      <div className={classes.categoryList}>{seriesCard}</div>
+
       <h2>Documentaries</h2>
-      {documentaryCard}
+      <div className={classes.categoryList}>{documentaryCard}</div>
+      {/* <div className={classes.categoryList}>
+        <h2>Top 10 in Sweden Today</h2>
+      </div> */}
     </div>
   );
 }

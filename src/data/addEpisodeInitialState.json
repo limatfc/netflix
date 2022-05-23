@@ -1,8 +1,15 @@
 {
-    "episode": "",
-    "season": "",
-    "title": "",
-    "description":"",
-    "query": "",
-    "thumb":""
+  "episodes": [],
+  "adjectives": "",
+  "cast": "",
+  "title": "",
+  "description": "",
+  "logo": "",
+  "query": "",
+  "thumb": "",
+  "genres": "",
+  "type": "",
+  "releaseYear": "",
+  "duration": "",
+  "minAge": ""
 }

@@ -1,7 +1,18 @@
-.titleCategories{
-    margin-left: 4%;
+.titleCategories {
+  margin-left: 4%;
 }
 
-.titleCategories h2{
-    color: white;
+.titleCategories h2 {
+  color: white;
+  margin: 0;
+  padding: 0 0 16px 0;
+  font-weight: 400;
+}
+
+.categoryList {
+  display: inline-block;
+  white-space: nowrap;
+  height: 19vh;
+  overflow-x: auto;
+  width: auto;
 }
