@@ -6,7 +6,7 @@ import {
   collection,
   getDocs,
   addDoc,
-  deleteDoc
+  deleteDoc,
 } from "firebase/firestore";
 import { onFail } from "../logic/onFail";
 
@@ -78,8 +78,8 @@ export async function deleteDocument(path, documentId) {
     await deleteDoc(doc(fireStore, path, documentId));
     data.result = true;
   } catch (error) {
-   console.error(error)
-   data.error("Ops, looks like there was a problem. Please try again later.")
+    console.error(error);
+    data.error("Ops, looks like there was a problem. Please try again later.");
   }
   return data;
 }

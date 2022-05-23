@@ -90,6 +90,49 @@ export function AccountProvider({ children }) {
     return findTitle;
   }
 
+  function addTitlePreference(titleId, inputedData) {
+    const find = account.titlePreferences.find((item) => item.id === titleId);
+    if (!find) account.titlePreferences.push(inputedData);
+    if (find) {
+      const findEpisode = account.titlePreferences.findIndex(
+        (item) => item.id === titleId
+      );
+      account.titlePreferences.splice(findEpisode, 1);
+      account.titlePreferences.push(inputedData);
+    }
+    setAccount(account);
+    return account.titlePreferences;
+  }
+
+  function removeTitlePreference(titleId, inputedData) {
+    const find = account.titlePreferences.find((item) => item.id === titleId);
+    if (!find) account.titlePreferences.push(inputedData);
+    if (find) {
+      const findEpisode = account.titlePreferences.findIndex(
+        (item) => item.id === titleId
+      );
+      account.titlePreferences.splice(findEpisode, 1);
+      account.titlePreferences.push(inputedData);
+    }
+    setAccount(account);
+    return account.titlePreferences;
+  }
+
+  function addTitleMyList(titleId) {
+    const copy = { ...account };
+    copy.myList.push(titleId);
+    setAccount(copy);
+    return copy.myList;
+  }
+
+  function removeTitleMyList(titleId) {
+    const copy = { ...account };
+    const findTitle = copy.myList.findIndex((item) => item === titleId);
+    copy.myList.splice(findTitle, 1);
+    setAccount(copy);
+    return copy.myList;
+  }
+
   const value = {
     uid,
     uidHandler,
@@ -103,6 +146,10 @@ export function AccountProvider({ children }) {
     addEpisode,
     deleteEpisode,
     editEpisode,
+    addTitlePreference,
+    removeTitlePreference,
+    addTitleMyList,
+    removeTitleMyList,
   };
 
   return (

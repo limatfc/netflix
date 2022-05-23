@@ -12,28 +12,35 @@
   font-weight: bold;
 }
 
+@font-face {
+  font-family: "NetflixSans";
+  src: local("NetflixSans"),
+    url(../assets/fonts/NetflixSansThin.ttf) format("truetype");
+  font-weight: thin;
+}
+
 html,
 body {
   margin: 0;
   padding: 0;
   width: 100%;
   height: 100%;
-font-family: "NetflixSans";
-box-sizing: border-box;
+  font-family: "NetflixSans";
+  box-sizing: border-box;
 }
 
-h1{
+h1 {
   font-size: 3.125vw;
 }
 
-h2{
+h2 {
   font-size: 1.625vw;
 }
-h3{
+h3 {
   font-size: 1.2vw;
 }
 
-*{
+* {
   -ms-overflow-style: none;
 }
 ::-webkit-scrollbar {

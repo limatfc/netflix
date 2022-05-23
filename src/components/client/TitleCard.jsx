@@ -1,6 +1,6 @@
 import { useState } from "react";
 import classes from "../../styles/client/TitleCard.module.css";
-import NotSeriesDetails from "./NotSeriesDetails";
+import NotSeriesOverlayer from "./NotSeriesOverlayer";
 import Modal from "../Modal";
 import showComingSoon from "../../scripts/logic/showComingSoon";
 import SeriesDetails from "./SeriesDetails";
@@ -23,7 +23,7 @@ export default function TitleCard({ item }) {
       {showModal && (
         <Modal>
           {item.type !== "Series" && (
-            <NotSeriesDetails setShowModal={setShowModal} item={item} />
+            <NotSeriesOverlayer setShowModal={setShowModal} item={item} />
           )}
           {item.type === "Series" && (
             <SeriesDetails setShowModal={setShowModal} item={item} />
