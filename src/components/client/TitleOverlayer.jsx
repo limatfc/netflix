@@ -3,9 +3,12 @@ import classes from "../../styles/client/NotSeriesOverlayer.module.css";
 import DetailsHeader from "./DetailsHeader";
 import YoutubeEmbed from "../YoutubeEmbed";
 import NotSeriesDetails from "./NotSeriesDetails";
+import SeriesDetails from "./SeriesDetails";
 
-export default function NotSeriesOverlayer({ setShowModal, item }) {
+export default function TitleOverlayer({ setShowModal, item }) {
   const [showVideo, setShowVideo] = useState(false);
+  const notSeriesType = !showVideo && item.type !== "Series";
+  const seriesType = !showVideo && item.type === "Series";
 
   return (
     <div>
@@ -22,7 +25,8 @@ export default function NotSeriesOverlayer({ setShowModal, item }) {
             setShowVideo={setShowVideo}
           />
         )}
-        {!showVideo && <NotSeriesDetails item={item} />}
+        {notSeriesType && <NotSeriesDetails item={item} />}
+        {seriesType && <SeriesDetails item={item} />}
       </div>
     </div>
   );
