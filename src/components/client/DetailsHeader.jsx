@@ -1,13 +1,22 @@
 import logoLetter from "../../assets/icons/logo-letter.png";
 import play from "../../assets/icons/play.png";
-import plus from "../../assets/icons/plus.png";
-import like from "../../assets/icons/like.png";
-import dislike from "../../assets/icons/dislike.png";
 import sound from "../../assets/icons/sound.png";
 import close from "../../assets/icons/close.png";
+import { useState } from "react";
 import classes from "../../styles/client/DetailsHeader.module.css";
+import useAccountProvider from "../../store/useAccountProvider";
+import LikeTitle from "./LikeTitle";
+import DislikeTitle from "./DislikeTitle";
+import AddTitleMyList from "./AddTitleMyList";
 
-export default function DetailsHeader({ item }) {
+export default function DetailsHeader({ item, setShowModal, setShowVideo }) {
+  const { account } = useAccountProvider();
+  const find =
+    account.titlePreferences.find((title) => title.id === item.id) || false;
+  const [dislikedTitle, setDislikedTitle] = useState(find.isDisliked);
+  const [likedTitle, setLikedTitle] = useState(find.isLiked);
+  const actions = [setDislikedTitle, setLikedTitle];
+
   return (
     <header className={classes.detailsHeader}>
       <div className={classes.logo}>
@@ -17,26 +26,23 @@ export default function DetailsHeader({ item }) {
       <div className={classes.titleLogoWrapper}>
         <img src={item.logo} alt="show's logo" />
       </div>
-      <button className={`${classes.icon} ${classes.close}`}>
+      <button
+        onClick={() => setShowModal(false)}
+        className={`${classes.icon} ${classes.close}`}
+      >
         <img src={close} alt="close icon" />
       </button>
       <img className={classes.cover} src={item.cover} alt="cover" />
       <div className={classes.buttons}>
-        <button className={classes.play}>
+        <button onClick={() => setShowVideo(true)} className={classes.play}>
           <img src={play} alt="play icon" />
           <span>Play</span>
         </button>
-        <button className={classes.icon}>
-          <img src={plus} alt="plus icon" />
-        </button>
-        <button className={classes.icon}>
-          <img src={like} alt="like icon" />
-        </button>
-        <button className={classes.icon}>
-          <img src={dislike} alt="dislike icon" />
-        </button>
+        <AddTitleMyList item={item} />
+        <LikeTitle item={item} actions={actions} getter={likedTitle} />
+        <DislikeTitle item={item} actions={actions} getter={dislikedTitle} />
         <div className={classes.empty}></div>
-        <button className={classes.icon}>
+        <button className={`${classes.icon} ${classes.sound}`}>
           <img src={sound} alt="sound icon" />
         </button>
       </div>

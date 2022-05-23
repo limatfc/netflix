@@ -30,6 +30,8 @@ export default function SignUp() {
     if (data.uid) {
       const result = await addDocumentWithID("accounts", data.uid, {
         role: "client",
+        titlePreferences: [],
+        myList: [],
       });
       if (result.result) {
         navigate("/SignUp/planform");

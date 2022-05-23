@@ -120,3 +120,7 @@
   right: 0;
   width: 36px;
 }
+
+.sound {
+  opacity: 0.5;
+}
