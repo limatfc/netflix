@@ -2,12 +2,11 @@ import { useState } from "react";
 import classes from "../../styles/client/NotSeriesOverlayer.module.css";
 import DetailsHeader from "./DetailsHeader";
 import YoutubeEmbed from "../YoutubeEmbed";
-import NotSeriesDetails from "./NotSeriesDetails";
-import SeriesDetails from "./SeriesDetails";
+import TitleDetails from "./TitleDetails";
+import SeriesEpisodes from "./SeriesEpisodes";
 
 export default function TitleOverlayer({ setShowModal, item }) {
   const [showVideo, setShowVideo] = useState(false);
-  const notSeriesType = !showVideo && item.type !== "Series";
   const seriesType = !showVideo && item.type === "Series";
 
   return (
@@ -25,8 +24,8 @@ export default function TitleOverlayer({ setShowModal, item }) {
             setShowVideo={setShowVideo}
           />
         )}
-        {notSeriesType && <NotSeriesDetails item={item} />}
-        {seriesType && <SeriesDetails item={item} />}
+        {!showVideo && <TitleDetails item={item} />}
+        {seriesType && <SeriesEpisodes item={item} />}
       </div>
     </div>
   );
