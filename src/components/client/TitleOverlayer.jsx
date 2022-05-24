@@ -1,5 +1,5 @@
 import { useState } from "react";
-import classes from "../../styles/client/NotSeriesOverlayer.module.css";
+import classes from "../../styles/client/TitleOverlayer.module.css";
 import DetailsHeader from "./DetailsHeader";
 import YoutubeEmbed from "../YoutubeEmbed";
 import TitleDetails from "./TitleDetails";

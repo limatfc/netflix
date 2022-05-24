@@ -1,4 +1,4 @@
-import classes from "../../styles/client/NotSeriesDetails.module.css";
+import classes from "../../styles/client/TitleDetails.module.css";
 
 export default function TitleDetails({ item }) {
   let hours = Math.floor(item.duration / 60);
@@ -25,14 +25,16 @@ export default function TitleDetails({ item }) {
           </span>
         )}
         <span className={classes.year}>{item.releaseYear}</span>
-        {item.minAge > 0 && <span>{item.minAge}</span>}
+        {item.minAge > 0 && <span className={classes.age}>{item.minAge}+</span>}
         {notSeries && (
           <span className={classes.duration}>
             {hours}h {minutes}m
           </span>
         )}
-        {isSeries && <span>{`${totalSeries} Seasons`}</span>}
-        <span>HD</span>
+        {isSeries && (
+          <span className={classes.series}>{`${totalSeries} Seasons`}</span>
+        )}
+        <span className={classes.hd}>HD</span>
       </div>
       <div className={classes.description}>
         <p>{item.description}</p>
@@ -41,7 +43,7 @@ export default function TitleDetails({ item }) {
         <section>
           Cast: {cast}
           <span>
-            <i>more</i>
+            <i className={classes.more}>more</i>
           </span>
         </section>
         <section>Genres: {genres}</section>

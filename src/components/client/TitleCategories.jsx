@@ -3,10 +3,11 @@ import TitleCard from "./TitleCard";
 import classes from "../../styles/client/TitleCategories.module.css";
 
 export default function TitleCategories() {
-  const { titles } = useAccountProvider();
+  const { titles, account } = useAccountProvider();
   const movies = titles.filter((item) => item.type === "Movie");
   const documentaries = titles.filter((item) => item.type === "Documentary");
   const series = titles.filter((item) => item.type === "Series");
+  const showList = account.myList.length !== 0;
 
   const movieCard = movies.map((item) => (
     <TitleCard item={item} key={item.id} />
@@ -18,14 +19,22 @@ export default function TitleCategories() {
     <TitleCard item={item} key={item.id} />
   ));
 
+  const myListTitles = account.myList.map((item) => {
+    const findMatch = titles.find((title) => title.id === item);
+    return findMatch;
+  });
+
+  const myListCard = myListTitles.map((item) => (
+    <TitleCard item={item} key={item.id} />
+  ));
   return (
     <div className={classes.titleCategories}>
+      {showList && <h2>My List</h2>}
+      {showList && <div className={classes.categoryList}>{myListCard}</div>}
       {/* <div className={classes.categoryList}>
-        <h2>My List</h2>
-      </div>
-      <div className={classes.categoryList}>
         <h2>Continue watching for</h2>
-      </div> */}
+      </div>  */}
+
       <h2>Movies</h2>
       <div className={classes.categoryList}>{movieCard}</div>
 

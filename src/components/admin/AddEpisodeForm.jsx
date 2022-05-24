@@ -49,6 +49,7 @@ export default function AddEpisodeForm({ setAddEpisode, data }) {
           <InputField setup={set.de} state={[input, setInput]} check={check} />
           <InputField setup={set.qe} state={[input, setInput]} check={check} />
           <InputField setup={set.th} state={[input, setInput]} check={check} />
+          <InputField setup={set.du} state={[input, setInput]} check={number} />
           <button type="submit">{label}</button>
           <button type="button" onClick={() => setAddEpisode(false)}>
             Close
