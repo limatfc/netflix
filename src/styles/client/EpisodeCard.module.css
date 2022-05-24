@@ -3,7 +3,13 @@
   color: #cccbcc;
   grid-template-columns: 0.75fr 1.5fr 5fr;
   padding: 16px;
+  background-color: transparent;
+  border: none;
   border-bottom: 1px solid #404040;
+}
+
+.episodeCard:hover {
+  cursor: pointer;
 }
 
 .episodeCard img {

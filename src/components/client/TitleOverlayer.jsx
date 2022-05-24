@@ -7,7 +7,13 @@ import SeriesEpisodes from "./SeriesEpisodes";
 
 export default function TitleOverlayer({ setShowModal, item }) {
   const [showVideo, setShowVideo] = useState(false);
+  const [embedId, setembedId] = useState("");
   const seriesType = !showVideo && item.type === "Series";
+
+  function openYoutubeVideo(query) {
+    setShowVideo(true);
+    setembedId(query);
+  }
 
   return (
     <div>
@@ -16,16 +22,18 @@ export default function TitleOverlayer({ setShowModal, item }) {
         className={classes.backdrop}
       ></div>
       <div className={classes.overlayer}>
-        {showVideo && <YoutubeEmbed embedId={item.query} />}
+        {showVideo && <YoutubeEmbed embedId={embedId} />}
         {!showVideo && (
           <DetailsHeader
             item={item}
             setShowModal={setShowModal}
-            setShowVideo={setShowVideo}
+            openYoutubeVideo={openYoutubeVideo}
           />
         )}
         {!showVideo && <TitleDetails item={item} />}
-        {seriesType && <SeriesEpisodes item={item} />}
+        {seriesType && (
+          <SeriesEpisodes openYoutubeVideo={openYoutubeVideo} item={item} />
+        )}
       </div>
     </div>
   );

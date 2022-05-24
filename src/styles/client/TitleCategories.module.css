@@ -10,9 +10,9 @@
 }
 
 .categoryList {
-  display: inline-block;
   white-space: nowrap;
   height: 19vh;
   overflow-x: auto;
+  overflow-y: hidden;
   width: auto;
 }

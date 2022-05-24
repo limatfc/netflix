@@ -9,13 +9,25 @@ import LikeTitle from "./LikeTitle";
 import DislikeTitle from "./DislikeTitle";
 import AddTitleMyList from "./AddTitleMyList";
 
-export default function DetailsHeader({ item, setShowModal, setShowVideo }) {
+export default function DetailsHeader({
+  item,
+  setShowModal,
+  openYoutubeVideo,
+}) {
   const { account } = useAccountProvider();
   const find =
     account.titlePreferences.find((title) => title.id === item.id) || false;
   const [dislikedTitle, setDislikedTitle] = useState(find.isDisliked);
   const [likedTitle, setLikedTitle] = useState(find.isLiked);
   const actions = [setDislikedTitle, setLikedTitle];
+
+  function onOpenVideo() {
+    let query = "";
+    item.type === "Series"
+      ? (query = item.episodes[0].query)
+      : (query = item.query);
+    openYoutubeVideo(query);
+  }
 
   return (
     <header className={classes.detailsHeader}>
@@ -34,7 +46,7 @@ export default function DetailsHeader({ item, setShowModal, setShowVideo }) {
       </button>
       <img className={classes.cover} src={item.cover} alt="cover" />
       <div className={classes.buttons}>
-        <button onClick={() => setShowVideo(true)} className={classes.play}>
+        <button onClick={onOpenVideo} className={classes.play}>
           <img src={play} alt="play icon" />
           <span>Play</span>
         </button>

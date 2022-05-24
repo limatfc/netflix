@@ -6,7 +6,7 @@ import classes from "../../styles/client/SeriesEpisodes.module.css";
 import EpisodeCard from "./EpisodeCard";
 import down from "../../assets/icons/down.png";
 
-export default function SeriesEpisodes({ item }) {
+export default function SeriesEpisodes({ item, openYoutubeVideo }) {
   const repeatedSeasons = item.episodes.map((item) => item.season);
   let seasons = [];
   for (let i = 0; i < repeatedSeasons.length; i++) {
@@ -29,7 +29,11 @@ export default function SeriesEpisodes({ item }) {
     (item) => item.season === chosenSeason
   );
   const episodeCards = episodesPerSeason.map((item) => (
-    <EpisodeCard item={item} key={item.id} />
+    <EpisodeCard
+      openYoutubeVideo={openYoutubeVideo}
+      item={item}
+      key={item.id}
+    />
   ));
 
   return (
