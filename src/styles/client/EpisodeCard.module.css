@@ -1,0 +1,47 @@
+.episodeCard {
+  display: grid;
+  color: #cccbcc;
+  grid-template-columns: 0.75fr 1.5fr 5fr;
+  padding: 16px;
+  border-bottom: 1px solid #404040;
+}
+
+.episodeCard img {
+  width: 100%;
+  align-self: center;
+  justify-self: center;
+}
+
+.number {
+  align-self: center;
+  justify-self: center;
+  font-size: 24px;
+}
+
+.details {
+  align-self: center;
+  justify-self: center;
+  display: grid;
+}
+
+.title {
+  padding: 16px 16px 8px;
+  font-size: 1em;
+  font-weight: bold;
+  grid-row-start: 1;
+  color: white;
+}
+.description {
+  padding: 0 14px 14px;
+  font-size: 14px;
+  font-weight: thin;
+  grid-row-start: 2;
+}
+
+.duration {
+  justify-self: end;
+  grid-row-start: 1;
+  font-weight: thin;
+  align-self: center;
+  color: white;
+}

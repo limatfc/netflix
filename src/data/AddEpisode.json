@@ -1,27 +1,27 @@
 {
-    "se" : {
-      "key": "season",
-      "label": "Season",
-      "placeholder": "Season",
-      "type": "number",
-      "error": "Please enter a valid number (greater than 0)."
-    },
-    "ep" :{
-      "key": "episode",
-      "label": "Episode",
-      "placeholder": "Episode",
-      "type": "number",
-      "error": "Please enter a valid number (greater than 0)."
-    },
-  
-"de": {
-        "key": "description",
-        "label": "Description",
-        "placeholder": "Description",
-        "type": "text",
-        "error": "Please enter a valid description for this content."
-},
-"qe": {
+  "se": {
+    "key": "season",
+    "label": "Season",
+    "placeholder": "Season",
+    "type": "number",
+    "error": "Please enter a valid number (greater than 0)."
+  },
+  "ep": {
+    "key": "episode",
+    "label": "Episode",
+    "placeholder": "Episode",
+    "type": "number",
+    "error": "Please enter a valid number (greater than 0)."
+  },
+
+  "de": {
+    "key": "description",
+    "label": "Description",
+    "placeholder": "Description",
+    "type": "text",
+    "error": "Please enter a valid description for this content."
+  },
+  "qe": {
     "key": "query",
     "label": "Youtube URL Query",
     "placeholder": "Query",
@@ -36,11 +36,17 @@
     "error": "Please enter a valid URL link."
   },
   "ti": {
-    
-      "key": "title",
-      "label": "Title",
-      "placeholder": "Title",
-      "type": "text",
-      "error": "Please enter a valid title for this content."
-    
-  }}
+    "key": "title",
+    "label": "Title",
+    "placeholder": "Title",
+    "type": "text",
+    "error": "Please enter a valid title for this content."
+  },
+  "du": {
+    "key": "duration",
+    "label": "Duration",
+    "placeholder": "Duration",
+    "type": "number",
+    "error": "Please enter a valid number (greater than 0)."
+  }
+}

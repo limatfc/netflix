@@ -28,6 +28,7 @@ export default function EpisodeCard({ episode, id }) {
           </button>
           <p>Title: {episode.title}</p>
           <p>Description: {episode.description}</p>
+          <p>Episode duration: {episode.duration}</p>
           <img src={episode.thumb} alt="a frozen scene of the episode" />
           <YoutubeEmbed embedId={episode.query} />
         </div>

@@ -14,11 +14,10 @@
   margin-right: 0.5em;
 }
 
-.year {
-  margin-right: 0.5em;
-}
-
-.duration {
+.year,
+.age,
+.duration,
+.series {
   margin-right: 0.5em;
 }
 
@@ -49,4 +48,26 @@
 
 .classification section span:hover {
   text-decoration: underline;
+}
+
+.more {
+  text-transform: none;
+}
+
+.age,
+.hd {
+  border: white;
+  border-style: solid;
+  border-width: 1px;
+}
+
+.hd {
+  font-size: 0.7em;
+  border-radius: 2px;
+  padding: 0 0.5em;
+  opacity: 0.9;
+}
+
+.age {
+  padding: 0 0.4em;
 }

@@ -1,0 +1,46 @@
+.seriesEpisodes {
+  margin: 0 4%;
+}
+
+.header {
+  color: white;
+  display: flex;
+  align-items: center;
+}
+
+.empty {
+  flex-grow: 1;
+}
+.select {
+  color: white;
+  background-color: rgb(36, 36, 36);
+  min-width: 4em;
+  padding: 0.5em 1em;
+  height: 2.5em;
+  cursor: pointer;
+  border: 0.1em solid rgb(77, 77, 77);
+  border-radius: 0.2em;
+  font-size: 18px;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+.header div ul {
+  background-color: rgb(36, 36, 36);
+}
+
+.header h3 {
+  margin-top: 48px;
+  font-weight: 600;
+}
+
+.select img {
+  width: 10px;
+  margin-left: 36px;
+}
+hr {
+  border: 1px solid #404040;
+  margin: 0;
+  padding: 0;
+}
