@@ -1,0 +1,31 @@
+.top10card {
+  display: inline-flex;
+  white-space: nowrap;
+  padding: 0 0.2vw;
+  min-width: 200px;
+  max-width: 16.66666667%;
+  vertical-align: top;
+}
+
+.thumb {
+  width: 50%;
+}
+
+.top10card div {
+  display: flex;
+}
+
+.number {
+  width: 50%;
+}
+
+.top10card button {
+  margin: 0 20px;
+  padding: 1.2vw 0 1.2vw 0;
+  background-color: transparent;
+  border: none;
+}
+
+.top10card button:hover {
+  cursor: pointer;
+}
